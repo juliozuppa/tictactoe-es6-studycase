@@ -1,8 +1,8 @@
 class PlayerController {
 
     constructor() {
-        this._player1 = new PlayerModel('p1');
-        this._player2 = new PlayerModel('p2');
+        this._player1 = new PlayerModel('p1', 'x');
+        this._player2 = new PlayerModel('p2', 'circle');
     }
 
     setEvents() {

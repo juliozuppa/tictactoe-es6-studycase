@@ -2,10 +2,6 @@
     0% {color: #ffffff;}
     100% {color: #198754;}
 }
-.position {
-    display: none;
-    z-index: 0;
-}
 .flag-icon {
     font-size: 40px;
     color: #DC3545;
@@ -13,6 +9,7 @@
 .square {
     width: 120px;
     height: 120px;
+    cursor: pointer;
 }
 .circle {
     border: 10px solid #0a53be;

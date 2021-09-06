@@ -1,19 +1,16 @@
 class MenuController {
+
     constructor() {
         this._menuModel = new MenuModel();
+        this._matrixController = new MatrixController();
     }
 
     setEvents() {
+        let that = this;
         this._menuModel.newGameButton.click(function (e) {
             e.preventDefault();
-            if(AppController.playerController.player1.isFlagged()) {
-                AppController.playerController.player1.unflag();
-                AppController.playerController.player2.flag();
-            } else {
-                AppController.playerController.player1.flag();
-                AppController.playerController.player2.unflag();
-            }
-
+            AppController.switchPlayer();
+            that._matrixController.resetMatrix();
         });
 
         this._menuModel.resetScoreButton.click(function (e) {

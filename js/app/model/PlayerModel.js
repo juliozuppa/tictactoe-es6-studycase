@@ -1,6 +1,6 @@
 class PlayerModel {
 
-    constructor(elementId) {
+    constructor(elementId, cssClass) {
         this._elementId = elementId;
         this._name = localStorage.getItem(`${elementId}-name`) || '';
         this._score = localStorage.getItem(elementId) || 0;
@@ -9,6 +9,7 @@ class PlayerModel {
         this._flagElement = $(`#${elementId}-flag`);
         this._scoreElement.val(this._score);
         this._nameElement.val(this._name);
+        this._cssClass = cssClass;
     }
 
     get nameElement() {
@@ -30,6 +31,10 @@ class PlayerModel {
 
     get score() {
         return this._score;
+    }
+
+    get cssClass() {
+        return this._cssClass;
     }
 
     incrementScore() {
