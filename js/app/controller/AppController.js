@@ -1,12 +1,18 @@
 class AppController {
 
-    constructor() {
-        this._p1 = new Player('p1');
-        this._p2 = new Player('p2');
-        Object.freeze(this);
+    static constructor() {
+        throw Error('Essa classe não pode ser instanciada');
     }
 
-    start() {
-
+    static start() {
+        this._playerController = new PlayerController();
+        this._menuController = new MenuController();
+        this._playerController.setEvents();
+        this._menuController.setEvents();
     }
+
+    static get playerController() {
+        return this._playerController;
+    }
+
 }
