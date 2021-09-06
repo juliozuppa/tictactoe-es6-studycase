@@ -1,0 +1,50 @@
+@keyframes blinking-winner {
+    0% {color: #ffffff;}
+    100% {color: #198754;}
+}
+.position {
+    display: none;
+    z-index: 0;
+}
+.flag-icon {
+    font-size: 40px;
+    color: #DC3545;
+    display: none;
+}
+.square {
+    width: 120px;
+    height: 120px;
+}
+.circle {
+    border: 10px solid #0a53be;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    margin-top: 18px;
+    margin-left: 5px;
+}
+.x {
+    position: sticky;
+    width: 100px;
+    height: 100px;
+    margin-left: 40px;
+    margin-top: 9px;
+}
+.x:before, .x:after {
+    position: absolute;
+    content: ' ';
+    height: 100px;
+    width: 10px;
+    background-color: #1d6d3f;
+}
+.x:before {
+    transform: rotate(45deg);
+}
+.x:after {
+    transform: rotate(-45deg);
+}
+.valid-feedback {
+    font-weight: bold;
+    font-size: large;
+    animation: blinking-winner 0.5s infinite;
+}

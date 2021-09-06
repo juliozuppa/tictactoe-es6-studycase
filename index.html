@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jogo Da Velha</title>
+    <link rel="stylesheet" href="css/libs/bootstrap.min.css">
+    <link rel="stylesheet" href="css/libs/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="container">
+    <div class="row g-2 mt-4 pb-4" id="players-panel">
+
+        <div class="col-md-4" id="p1-panel">
+            <div class="row">
+                <div class="col-md-3 d-flex justify-content-center" id="p1-flag">
+                    <i class="bi bi-flag-fill flag-icon mt-3"></i><br>
+                </div>
+                <div class="col-md-6">
+                    <label for="p1-name" class="form-label fw-bold text-secondary">JOGADOR 1</label>
+                    <input type="text" class="form-control" placeholder="Digite seu nome" id="p1-name" maxlength="30">
+                    <div class="valid-feedback">VENCEDOR!</div>
+                </div>
+                <div class="col-md-3">
+                    <label for="p1-score" class="form-label fw-bold text-secondary">PONTOS</label>
+                    <input type="text" class="form-control bg-danger text-white fw-bold" id="p1-score" value="0" readonly>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 d-flex justify-content-center">
+            <div class="list-group mx-5 w-50">
+                <a href="javascript:void(0);" class="list-group-item list-group-item-light text-center" id="btn-new-game">
+                    Nova Partida
+                </a>
+                <a href="javascript:void(0);" class="list-group-item list-group-item-light text-center" id="btn-reset-score">
+                    Zerar Pontos
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-4" id="p2-panel">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="p2-name" class="form-label fw-bold text-secondary">JOGADOR 2</label>
+                    <input type="text" class="form-control" placeholder="Digite seu nome" id="p2-name" maxlength="30">
+                    <div class="valid-feedback">VENCEDOR!</div>
+                </div>
+                <div class="col-md-3">
+                    <label for="p2-score" class="form-label fw-bold text-secondary">PONTOS</label>
+                    <input type="text" class="form-control bg-danger text-white fw-bold" id="p2-score" value="0" readonly>
+                </div>
+                <div class="col-md-3 d-flex justify-content-center" id="p2-flag">
+                    <i class="bi bi-flag-fill flag-icon mt-3"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row p-5">
+        <div class="row justify-content-center">
+            <div class="col-4 border-bottom border-secondary border-5 square">
+                <div class="position" data-row="0" data-col="0" id="r0c0"></div>
+            </div>
+            <div class="col-4 border-start border-end border-bottom border-5 border-secondary square">
+                <div class="position" data-row="0" data-col="1" id="r0c1"></div>
+            </div>
+            <div class="col-4 border-bottom border-secondary border-5 square">
+                <div class="position" data-row="0" data-col="2" id="r0c2"></div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-4 border-bottom border-secondary border-5 square">
+                <div class="position" data-row="1" data-col="0" id="r1c0"></div>
+            </div>
+            <div class="col-4 border-start border-end border-bottom border-secondary border-5 square">
+                <div class="position" data-row="1" data-col="1" id="r1c1"></div>
+            </div>
+            <div class="col-4 border-bottom border-secondary border-5 square">
+                <div class="position" data-row="1" data-col="2" id="r1c2"></div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-4 square">
+                <div class="position" data-row="2" data-col="0" id="r2c0"></div>
+            </div>
+            <div class="col-4 border-start border-end border-secondary border-5 square">
+                <div class="position" data-row="2" data-col="1" id="r2c1"></div>
+            </div>
+            <div class="col-4 square">
+                <div class="position" data-row="2" data-col="2" id="r2c2"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="js/libs/jquery.min.js"></script>
+<script src="js/libs/bootstrap.min.js"></script>
+<script src="js/app/model/Player.js"></script>
+<script src="js/app/controller/AppController.js"></script>
+<script src="js/app/app.js"></script>
+</body>
+</html>
