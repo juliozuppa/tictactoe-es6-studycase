@@ -15,10 +15,10 @@
         <div class="col-md-4" id="p1-panel">
             <div class="row">
                 <div class="col-md-3 d-flex justify-content-center" id="p1-flag">
-                    <i class="bi bi-flag-fill flag-icon mt-3"></i><br>
+                    <i class="bi bi-flag-fill flag-icon mt-3" style="display: none;"></i><br>
                 </div>
                 <div class="col-md-6">
-                    <label for="p1-name" class="form-label fw-bold text-secondary">JOGADOR 1</label>
+                    <label for="p1-name" class="form-label fw-bold text-secondary">JOGADOR <i class="bi bi-x-lg"></i></label>
                     <input type="text" class="form-control" placeholder="Digite seu nome" id="p1-name" maxlength="30">
                     <div class="valid-feedback">VENCEDOR!</div>
                 </div>
@@ -43,7 +43,7 @@
         <div class="col-md-4" id="p2-panel">
             <div class="row">
                 <div class="col-md-6">
-                    <label for="p2-name" class="form-label fw-bold text-secondary">JOGADOR 2</label>
+                    <label for="p2-name" class="form-label fw-bold text-secondary">JOGADOR <i class="bi bi-circle"></i></label>
                     <input type="text" class="form-control" placeholder="Digite seu nome" id="p2-name" maxlength="30">
                     <div class="valid-feedback">VENCEDOR!</div>
                 </div>
@@ -52,13 +52,13 @@
                     <input type="text" class="form-control bg-danger text-white fw-bold" id="p2-score" value="0" readonly>
                 </div>
                 <div class="col-md-3 d-flex justify-content-center" id="p2-flag">
-                    <i class="bi bi-flag-fill flag-icon mt-3"></i>
+                    <i class="bi bi-flag-fill flag-icon mt-3" style="display: none;"></i>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="row p-5">
+    <div class="row p-5" id="game-matrix">
         <div class="row justify-content-center">
             <div class="col-4 border-bottom border-secondary border-5 square">
                 <div class="position" data-row="0" data-col="0" id="r0c0"></div>
@@ -100,9 +100,10 @@
 <script src="js/libs/sweetalert.min.js"></script>
 <script src="js/app/model/MenuModel.js"></script>
 <script src="js/app/model/PlayerModel.js"></script>
+<script src="js/app/model/GameMatrixModel.js"></script>
 <script src="js/app/controller/AppController.js"></script>
 <script src="js/app/controller/MenuController.js"></script>
 <script src="js/app/controller/PlayerController.js"></script>
-<script src="js/app/app.js"></script>
+<script>AppController.start();</script>
 </body>
 </html>

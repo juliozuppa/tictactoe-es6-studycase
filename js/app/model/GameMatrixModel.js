@@ -1,0 +1,4 @@
+class GameMatrixModel {
+    constructor() {
+    }
+}
