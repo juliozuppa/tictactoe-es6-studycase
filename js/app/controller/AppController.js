@@ -56,12 +56,14 @@ class AppController {
         let that = this;
         let response = {
             success: false,
-            player: null
+            player: null,
+            positions: null
         };
         $.each(this._combinations, function (idx, combination) {
             if (combination.every(position => that._currentPlayer.positions.includes(position))) {
                 response.success = true;
                 response.player = that._currentPlayer;
+                response.positions = that._combinations[idx];
                 return false;
             }
         });
@@ -76,11 +78,17 @@ class AppController {
     }
 
     static endGame() {
+        this.clearFlags();
         this._endGame = true;
     }
 
     static isEndGame() {
         return this._endGame;
+    }
+
+    static clearFlags() {
+        this._playerController.player1.unflag();
+        this._playerController.player2.unflag();
     }
 
 }

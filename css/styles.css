@@ -2,29 +2,41 @@
     0% {color: #ffffff;}
     100% {color: #198754;}
 }
+@keyframes blinking-flag {
+    0% {color: #ffffff;}
+    100% {color: #DC3545;}
+}
 .flag-icon {
-    font-size: 40px;
     color: #DC3545;
+    animation: blinking-flag 0.5s infinite;
 }
 .square {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
+    float: left;
+    clear: right;
+}
+.square:hover {
     cursor: pointer;
+}
+.matrix-row {
+    margin: 0 auto;
+    width: 302px;
 }
 .circle {
     border: 10px solid #0a53be;
     border-radius: 50%;
     width: 80px;
     height: 80px;
-    margin-top: 18px;
-    margin-left: 5px;
+    margin-top: 8px;
+    margin-left: 8px;
 }
 .x {
     position: sticky;
     width: 100px;
     height: 100px;
-    margin-left: 40px;
-    margin-top: 9px;
+    margin-left: 44px;
+    margin-top: -1px;
 }
 .x:before, .x:after {
     position: absolute;

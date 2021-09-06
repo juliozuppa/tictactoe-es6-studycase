@@ -9,88 +9,78 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<div class="container">
-    <div class="row g-2 mt-4 pb-4" id="players-panel">
+<div class="container" style="min-width: 320px">
 
-        <div class="col-md-4" id="p1-panel">
-            <div class="row">
-                <div class="col-md-3 d-flex justify-content-center" id="p1-flag">
-                    <i class="bi bi-flag-fill flag-icon mt-3" style="display: none;"></i><br>
+    <div class="row mt-4 pb-4" id="p1-panel">
+        <div class="col-md-4 mt-2">
+            <label for="p1-name" class="form-label fw-bold text-secondary" id="p1-flag">JOGADOR <i class="bi bi-x-lg" style="color: #1D6D3F;"></i> <i class="bi bi-flag-fill flag-icon" style="display: none;"></i></label>
+            <input type="text" class="form-control player" placeholder="Digite seu nome" id="p1-name" maxlength="30">
+            <div class="valid-feedback">VENCEDOR!</div>
+        </div>
+        <div class="col-md-2 mt-2">
+            <label for="p1-score" class="form-label fw-bold text-secondary">PLACAR</label>
+            <input type="text" class="form-control bg-info text-white fw-bold text-center" id="p1-score" value="0" readonly>
+        </div>
+    </div>
+
+    <div class="row" style="max-width: 600px">
+        <div class="pt-2" id="matrix">
+            <div class="matrix-row">
+                <div class="border border-secondary border-2 square">
+                    <div class="position" data-position="1"></div>
                 </div>
-                <div class="col-md-6">
-                    <label for="p1-name" class="form-label fw-bold text-secondary">JOGADOR <i class="bi bi-x-lg" style="color: #1D6D3F;"></i></label>
-                    <input type="text" class="form-control player" placeholder="Digite seu nome" id="p1-name" maxlength="30">
-                    <div class="valid-feedback">VENCEDOR!</div>
+                <div class="border border-secondary border-2 square">
+                    <div class="position" data-position="2"></div>
                 </div>
-                <div class="col-md-3">
-                    <label for="p1-score" class="form-label fw-bold text-secondary">PONTOS</label>
-                    <input type="text" class="form-control bg-danger text-white fw-bold" id="p1-score" value="0" readonly>
+                <div class="border border-secondary border-2 square">
+                    <div class="position" data-position="3"></div>
                 </div>
             </div>
-        </div>
-
-        <div class="col-md-4 d-flex justify-content-center">
-            <div class="list-group mx-5 w-50">
-                <a href="javascript:void(0);" class="list-group-item list-group-item-light text-center" id="btn-new-game">
-                    Nova Partida
-                </a>
-                <a href="javascript:void(0);" class="list-group-item list-group-item-light text-center" id="btn-reset-score">
-                    Zerar Pontos
-                </a>
-            </div>
-        </div>
-
-        <div class="col-md-4" id="p2-panel">
-            <div class="row">
-                <div class="col-md-6">
-                    <label for="p2-name" class="form-label fw-bold text-secondary">JOGADOR <i class="bi bi-circle" style="color: #0A53BE;"></i></label>
-                    <input type="text" class="form-control player" placeholder="Digite seu nome" id="p2-name" maxlength="30">
-                    <div class="valid-feedback">VENCEDOR!</div>
+            <div class="matrix-row">
+                <div class="border border-secondary border-2 square">
+                    <div class="position" data-position="4"></div>
                 </div>
-                <div class="col-md-3">
-                    <label for="p2-score" class="form-label fw-bold text-secondary">PONTOS</label>
-                    <input type="text" class="form-control bg-danger text-white fw-bold" id="p2-score" value="0" readonly>
+                <div class="border border-secondary border-2 square">
+                    <div class="position" data-position="5"></div>
                 </div>
-                <div class="col-md-3 d-flex justify-content-center" id="p2-flag">
-                    <i class="bi bi-flag-fill flag-icon mt-3" style="display: none;"></i>
+                <div class="border border-secondary border-2 square">
+                    <div class="position" data-position="6"></div>
+                </div>
+                <div class="matrix-row">
+                    <div class="border border-secondary border-2 square">
+                        <div class="position" data-position="7"></div>
+                    </div>
+                    <div class="border border-secondary border-2 square">
+                        <div class="position" data-position="8"></div>
+                    </div>
+                    <div class="border border-secondary border-2 square">
+                        <div class="position" data-position="9"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="row p-5" id="matrix">
-        <div class="row justify-content-center">
-            <div class="col-4 border-bottom border-secondary border-5 square">
-                <div class="position" data-position="1" id="position-1"></div>
-            </div>
-            <div class="col-4 border-start border-end border-bottom border-5 border-secondary square">
-                <div class="position" data-position="2" id="position-2"></div>
-            </div>
-            <div class="col-4 border-bottom border-secondary border-5 square">
-                <div class="position" data-position="3" id="position-3"></div>
-            </div>
+    <div class="row mt-4 pt-4" id="p2-panel">
+        <div class="col-md-4">
+            <label for="p2-name" class="form-label fw-bold text-secondary" id="p2-flag">JOGADOR <i class="bi bi-circle" style="color: #0A53BE;"></i> <i class="bi bi-flag-fill flag-icon" style="display: none;"></i></label>
+            <input type="text" class="form-control player" placeholder="Digite seu nome" id="p2-name" maxlength="30">
+            <div class="valid-feedback">VENCEDOR!</div>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-4 border-bottom border-secondary border-5 square">
-                <div class="position" data-position="4" id="position-4"></div>
-            </div>
-            <div class="col-4 border-start border-end border-bottom border-secondary border-5 square">
-                <div class="position" data-position="5" id="position-5"></div>
-            </div>
-            <div class="col-4 border-bottom border-secondary border-5 square">
-                <div class="position" data-position="6" id="position-6"></div>
-            </div>
+        <div class="col-md-2 mt-2">
+            <label for="p2-score" class="form-label fw-bold text-secondary">PLACAR</label>
+            <input type="text" class="form-control bg-info text-white fw-bold text-center" id="p2-score" value="0" readonly>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-4 square">
-                <div class="position" data-position="7" id="position-7"></div>
-            </div>
-            <div class="col-4 border-start border-end border-secondary border-5 square">
-                <div class="position" data-position="8" id="position-8"></div>
-            </div>
-            <div class="col-4 square">
-                <div class="position" data-position="9" id="position-9"></div>
-            </div>
+    </div>
+
+    <div class="row my-4">
+        <div class="col-md-6">
+            <a href="javascript:void(0);" class="btn btn-success float-end" id="btn-new-game">
+                Nova Partida
+            </a>
+            <a href="javascript:void(0);" class="btn btn-warning float-start" id="btn-reset-score">
+                Zerar Pontos
+            </a>
         </div>
     </div>
 

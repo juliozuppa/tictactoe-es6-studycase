@@ -55,15 +55,15 @@ class PlayerModel {
     }
 
     flag() {
-        this._flagElement.find('i').show();
+        this._flagElement.find('i').filter('.flag-icon').show();
     }
 
     unflag() {
-        this._flagElement.find('i').hide();
+        this._flagElement.find('i').filter('.flag-icon').hide();
     }
 
     isFlagged() {
-        return this._flagElement.find('i').is(':visible');
+        return this._flagElement.find('i').filter('.flag-icon').is(':visible');
     }
 
     clearPositions() {

@@ -11,6 +11,7 @@ class MenuController {
             e.preventDefault();
             AppController.newGame();
             $('.player').removeClass('is-valid');
+            $('.position').parent().removeClass('bg-info');
             AppController.switchPlayer();
             that._matrixController.resetMatrix();
         });
