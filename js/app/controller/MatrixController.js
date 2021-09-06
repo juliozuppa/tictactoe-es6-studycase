@@ -22,8 +22,10 @@ class MatrixController {
                     response.player.nameElement.addClass('is-valid');
                     response.player.incrementScore();
                     that.highlightWinnerPositions(response.positions);
+that._step =0;
                     AppController.endGame();
                 } else if (that._step === 9) {
+that._step =0;
                     AppController.endGame();
                     swal("Oops", "Ninguém ganhou!", "error");
                 } else {
