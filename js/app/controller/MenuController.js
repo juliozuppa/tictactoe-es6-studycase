@@ -24,8 +24,7 @@ class MenuController {
                 closeOnClickOutside: false
             }).then((yes) => {
                 if (yes) {
-                    AppController.playerController.player1.resetScore();
-                    AppController.playerController.player2.resetScore();
+                    AppController.resetPlayerScores();
                 }
             });
 

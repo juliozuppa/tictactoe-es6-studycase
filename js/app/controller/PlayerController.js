@@ -25,4 +25,8 @@ class PlayerController {
         return this._player2;
     }
 
+    get players() {
+        return [this._player1, this._player2];
+    }
+
 }

@@ -10,14 +10,11 @@ class PlayerModel {
         this._scoreElement.val(this._score);
         this._nameElement.val(this._name);
         this._cssClass = cssClass;
+        this._positions = [];
     }
 
     get nameElement() {
         return this._nameElement;
-    }
-
-    get scoreElement() {
-        return this._scoreElement;
     }
 
     set name(name) {
@@ -35,6 +32,14 @@ class PlayerModel {
 
     get cssClass() {
         return this._cssClass;
+    }
+
+    get positions() {
+        return this._positions;
+    }
+
+    addPosition(position) {
+        this._positions.push(position);
     }
 
     incrementScore() {

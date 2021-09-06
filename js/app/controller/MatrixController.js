@@ -10,8 +10,15 @@ class MatrixController {
             if (AppController.currentPlayer &&
                 !$(this).children().hasClass('x') &&
                 !$(this).children().hasClass('circle')) {
+
+                AppController.addPositionToCurrentPlayer($(this).children().data('position'));
                 $(this).children().addClass(AppController.currentPlayer.cssClass);
-                AppController.switchPlayer();
+                let response = AppController.checkWinner();
+                if (response.success) {
+                    response.player.nameElement.addClass('is-valid');
+                } else {
+                    AppController.switchPlayer();
+                }
             }
         });
     }
@@ -21,4 +28,5 @@ class MatrixController {
             $(el).children().removeClass('circle').removeClass('x');
         });
     }
+
 }
