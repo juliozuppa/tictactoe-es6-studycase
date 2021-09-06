@@ -9,13 +9,16 @@ class MatrixController {
             e.preventDefault();
             if (AppController.currentPlayer &&
                 !$(this).children().hasClass('x') &&
-                !$(this).children().hasClass('circle')) {
+                !$(this).children().hasClass('circle') &&
+                !AppController.isEndGame()) {
 
                 AppController.addPositionToCurrentPlayer($(this).children().data('position'));
                 $(this).children().addClass(AppController.currentPlayer.cssClass);
                 let response = AppController.checkWinner();
                 if (response.success) {
                     response.player.nameElement.addClass('is-valid');
+                    response.player.incrementScore();
+                    AppController.endGame();
                 } else {
                     AppController.switchPlayer();
                 }

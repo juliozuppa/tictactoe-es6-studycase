@@ -9,6 +9,8 @@ class MenuController {
         let that = this;
         this._menuModel.newGameButton.click(function (e) {
             e.preventDefault();
+            AppController.newGame();
+            $('.player').removeClass('is-valid');
             AppController.switchPlayer();
             that._matrixController.resetMatrix();
         });

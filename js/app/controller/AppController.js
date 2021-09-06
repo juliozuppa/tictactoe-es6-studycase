@@ -13,9 +13,10 @@ class AppController {
         this._playerController = new PlayerController();
         this._menuController = new MenuController();
         this._matrixController = new MatrixController();
-        this._playerController.setEvents();
         this._menuController.setEvents();
+        this._playerController.setEvents();
         this._matrixController.setEvents();
+        this.newGame();
     }
 
     static get currentPlayer() {
@@ -31,10 +32,18 @@ class AppController {
             this._playerController.player1.unflag();
             this._playerController.player2.flag();
             this._currentPlayer = this._playerController.player2;
-        } else {
+        } else if (this._playerController.player2.isFlagged()) {
             this._playerController.player1.flag();
             this._playerController.player2.unflag();
             this._currentPlayer = this._playerController.player1;
+        } else {
+            if ((Math.floor(Math.random() * 10) + 1) % 2 === 0) {
+                this._playerController.player1.flag();
+                this._currentPlayer = this._playerController.player1;
+            } else {
+                this._playerController.player2.flag();
+                this._currentPlayer = this._playerController.player2;
+            }
         }
     }
 
@@ -57,6 +66,21 @@ class AppController {
             }
         });
         return response;
+    }
+
+    static newGame() {
+        this._playerController.player1.clearPositions();
+        this._playerController.player2.clearPositions();
+        this._endGame = false;
+        //this.switchPlayer();
+    }
+
+    static endGame() {
+        this._endGame = true;
+    }
+
+    static isEndGame() {
+        return this._endGame;
     }
 
 }

@@ -66,4 +66,8 @@ class PlayerModel {
         return this._flagElement.find('i').is(':visible');
     }
 
+    clearPositions() {
+        this._positions = [];
+    }
+
 }
