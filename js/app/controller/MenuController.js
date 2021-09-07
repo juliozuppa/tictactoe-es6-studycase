@@ -2,7 +2,6 @@ class MenuController {
 
     constructor() {
         this._menuModel = new MenuModel();
-        this._matrixController = new MatrixController();
     }
 
     setEvents() {
@@ -24,6 +23,7 @@ class MenuController {
             }).then((yes) => {
                 if (yes) {
                     AppController.resetPlayerScores();
+                    AppController.newGame();
                 }
             });
 

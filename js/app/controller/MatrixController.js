@@ -26,7 +26,14 @@ class MatrixController {
                     AppController.endGame();
                 } else if (that._step === 9) {
                     AppController.endGame();
-                    swal("Oops", "Ninguém ganhou!", "error");
+                    swal({
+                        title: "Oops",
+                        text: "Ninguém ganhou!",
+                        icon: "error",
+                        dangerMode: true,
+                        closeOnClickOutside: false
+                    });
+
                 } else {
                     AppController.switchPlayer();
                 }

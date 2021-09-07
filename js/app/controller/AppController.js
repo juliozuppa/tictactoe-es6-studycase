@@ -81,8 +81,7 @@ class AppController {
         this._playerController.player2.clearPositions();
         this._matrixController.restartStepCounter();
         this._endGame = false;
-        $('.player').removeClass('is-valid');
-        $('.position').parent().removeClass('bg-info');
+        this.clearWinnerMessage();
         this._matrixController.resetMatrix();
         this.switchPlayer();
     }
@@ -103,7 +102,8 @@ class AppController {
     }
 
     static clearWinnerMessage() {
-
+        $('.player').removeClass('is-valid');
+        $('.position').css('z-index', -1).parent().removeClass('bg-info');
     }
 
 }
