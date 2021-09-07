@@ -46,7 +46,7 @@ class MatrixController {
 
     highlightWinnerPositions(positions) {
         $.each(positions, function (idx, position) {
-            $('.position').filter(`[data-position="${position}"]`).parent().addClass('bg-info');
+            $('.position').filter(`[data-position="${position}"]`).css('z-index', 0).parent().addClass('bg-info');
         });
     }
 

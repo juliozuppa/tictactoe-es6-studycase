@@ -73,7 +73,6 @@ class AppController {
                 response.positions.push(...that._combinations[idx]);
             }
         });
-        console.log(response.positions);
         return response;
     }
 

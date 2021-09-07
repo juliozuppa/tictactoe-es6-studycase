@@ -18,7 +18,6 @@
     height: 100px;
     float: left;
     clear: right;
-    z-index: 999;
 }
 .square:hover {
     cursor: pointer;
@@ -34,6 +33,7 @@
     height: 80px;
     margin-top: 8px;
     margin-left: 8px;
+    z-index: -1;
 }
 .x {
     position: sticky;
