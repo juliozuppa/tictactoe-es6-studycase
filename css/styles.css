@@ -6,6 +6,9 @@
     0% {color: #ffffff;}
     100% {color: #DC3545;}
 }
+.container {
+    min-width: 320px;
+}
 .flag-icon {
     color: #DC3545;
     animation: blinking-flag 0.5s infinite;
@@ -15,6 +18,7 @@
     height: 100px;
     float: left;
     clear: right;
+    z-index: 999;
 }
 .square:hover {
     cursor: pointer;
@@ -37,6 +41,7 @@
     height: 100px;
     margin-left: 44px;
     margin-top: -1px;
+    z-index: -1;
 }
 .x:before, .x:after {
     position: absolute;

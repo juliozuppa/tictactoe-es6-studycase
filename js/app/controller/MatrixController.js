@@ -9,6 +9,7 @@ class MatrixController {
         let that = this;
         this._matrixModel.squareElement.click(function (e) {
             e.preventDefault();
+
             if (AppController.currentPlayer &&
                 !$(this).children().hasClass('x') &&
                 !$(this).children().hasClass('circle') &&
@@ -22,10 +23,8 @@ class MatrixController {
                     response.player.nameElement.addClass('is-valid');
                     response.player.incrementScore();
                     that.highlightWinnerPositions(response.positions);
-that._step =0;
                     AppController.endGame();
                 } else if (that._step === 9) {
-that._step =0;
                     AppController.endGame();
                     swal("Oops", "Ninguém ganhou!", "error");
                 } else {
@@ -39,6 +38,10 @@ that._step =0;
         this._matrixModel.squareElement.each(function (idx, el) {
             $(el).children().removeClass('circle').removeClass('x');
         });
+    }
+
+    restartStepCounter() {
+        this._step = 0;
     }
 
     highlightWinnerPositions(positions) {

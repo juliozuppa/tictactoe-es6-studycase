@@ -6,14 +6,10 @@ class MenuController {
     }
 
     setEvents() {
-        let that = this;
+
         this._menuModel.newGameButton.click(function (e) {
             e.preventDefault();
             AppController.newGame();
-            $('.player').removeClass('is-valid');
-            $('.position').parent().removeClass('bg-info');
-            AppController.switchPlayer();
-            that._matrixController.resetMatrix();
         });
 
         this._menuModel.resetScoreButton.click(function (e) {

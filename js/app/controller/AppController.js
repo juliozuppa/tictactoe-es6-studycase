@@ -28,21 +28,28 @@ class AppController {
     }
 
     static switchPlayer() {
-        if (this._playerController.player1.isFlagged()) {
-            this._playerController.player1.unflag();
-            this._playerController.player2.flag();
-            this._currentPlayer = this._playerController.player2;
-        } else if (this._playerController.player2.isFlagged()) {
-            this._playerController.player1.flag();
-            this._playerController.player2.unflag();
-            this._currentPlayer = this._playerController.player1;
-        } else {
-            if ((Math.floor(Math.random() * 10) + 1) % 2 === 0) {
+
+        if(!this._playerController.player1.isFlagged() && !this._playerController.player2.isFlagged()) {
+            if ((Math.floor(Math.random() * 100) + 1) % 2) {
                 this._playerController.player1.flag();
                 this._currentPlayer = this._playerController.player1;
             } else {
                 this._playerController.player2.flag();
                 this._currentPlayer = this._playerController.player2;
+            }
+        } else {
+
+            if (this._playerController.player1.isFlagged()) {
+
+                this._playerController.player1.unflag();
+                this._playerController.player2.flag();
+                this._currentPlayer = this._playerController.player2;
+
+            } else if (this._playerController.player2.isFlagged()) {
+
+                this._playerController.player2.unflag();
+                this._playerController.player1.flag();
+                this._currentPlayer = this._playerController.player1;
             }
         }
     }
@@ -57,28 +64,33 @@ class AppController {
         let response = {
             success: false,
             player: null,
-            positions: null
+            positions: []
         };
         $.each(this._combinations, function (idx, combination) {
             if (combination.every(position => that._currentPlayer.positions.includes(position))) {
                 response.success = true;
                 response.player = that._currentPlayer;
-                response.positions = that._combinations[idx];
-                return false;
+                response.positions.push(...that._combinations[idx]);
             }
         });
+        console.log(response.positions);
         return response;
     }
 
     static newGame() {
         this._playerController.player1.clearPositions();
         this._playerController.player2.clearPositions();
+        this._matrixController.restartStepCounter();
         this._endGame = false;
-        //this.switchPlayer();
+        $('.player').removeClass('is-valid');
+        $('.position').parent().removeClass('bg-info');
+        this._matrixController.resetMatrix();
+        this.switchPlayer();
     }
 
     static endGame() {
         this.clearFlags();
+        this._matrixController.restartStepCounter();
         this._endGame = true;
     }
 
@@ -89,6 +101,10 @@ class AppController {
     static clearFlags() {
         this._playerController.player1.unflag();
         this._playerController.player2.unflag();
+    }
+
+    static clearWinnerMessage() {
+
     }
 
 }
