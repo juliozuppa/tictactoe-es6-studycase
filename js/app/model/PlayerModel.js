@@ -5,16 +5,24 @@ class PlayerModel {
         this._name = localStorage.getItem(`${elementId}-name`) || '';
         this._score = localStorage.getItem(elementId) || 0;
         this._scoreElement = $(`#${elementId}-score`);
-        this._nameElement = $(`#${elementId}-name`);
+        this._inputName = $(`#${elementId}-name`);
         this._flagElement = $(`#${elementId}-flag`);
         this._scoreElement.val(this._score);
-        this._nameElement.val(this._name);
+        this._inputName.val(this._name);
         this._cssClass = cssClass;
         this._positions = [];
     }
 
-    get nameElement() {
-        return this._nameElement;
+    get elementId() {
+        return this._elementId;
+    }
+
+    get inputName() {
+        return this._inputName;
+    }
+
+    get flagElement() {
+        return this._flagElement;
     }
 
     set name(name) {
@@ -52,18 +60,6 @@ class PlayerModel {
         this._score = 0;
         this._scoreElement.val(this._score.toString());
         localStorage.setItem(this._elementId, this._score);
-    }
-
-    flag() {
-        this._flagElement.find('i').filter('.flag-icon').show();
-    }
-
-    unflag() {
-        this._flagElement.find('i').filter('.flag-icon').hide();
-    }
-
-    isFlagged() {
-        return this._flagElement.find('i').filter('.flag-icon').is(':visible');
     }
 
     clearPositions() {

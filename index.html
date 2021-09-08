@@ -15,7 +15,7 @@
         <div class="col-md-4 mt-2">
             <label for="p1-name" class="form-label fw-bold text-secondary" id="p1-flag">JOGADOR <i class="bi bi-x-lg" style="color: #1D6D3F;"></i>
                 <i class="bi bi-flag-fill flag-icon" style="display: none;"></i></label>
-            <input type="text" class="form-control player" placeholder="Digite seu nome" id="p1-name" maxlength="30">
+            <input type="text" onchange="game.changePlayerName(this);" class="form-control player" placeholder="Digite seu nome" data-id="p1" id="p1-name" maxlength="30">
             <div class="valid-feedback">VENCEDOR!</div>
         </div>
         <div class="col-md-2 mt-2">
@@ -66,7 +66,7 @@
         <div class="col-md-4">
             <label for="p2-name" class="form-label fw-bold text-secondary" id="p2-flag">JOGADOR <i class="bi bi-circle" style="color: #0A53BE;"></i>
                 <i class="bi bi-flag-fill flag-icon" style="display: none;"></i></label>
-            <input type="text" class="form-control player" placeholder="Digite seu nome" id="p2-name" maxlength="30">
+            <input type="text" onchange="game.changePlayerName(this);" class="form-control player" placeholder="Digite seu nome" data-id="p2" id="p2-name" maxlength="30">
             <div class="valid-feedback">VENCEDOR!</div>
         </div>
         <div class="col-md-2">
@@ -77,10 +77,10 @@
 
     <div class="row my-4">
         <div class="col-md-6">
-            <a href="javascript:void(0);" class="btn btn-danger float-end" id="btn-new-game">
+            <a href="javascript:void(0);" onclick="game.newGame();" class="btn btn-danger float-end" id="btn-new-game">
                 Nova Partida
             </a>
-            <a href="javascript:void(0);" class="btn btn-dark float-start" id="btn-reset-score">
+            <a href="javascript:void(0);" onclick="game.resetPlayerScores();" class="btn btn-dark float-start" id="btn-reset-score">
                 Zerar Pontos
             </a>
         </div>
@@ -93,10 +93,12 @@
 <script src="js/app/model/MenuModel.js"></script>
 <script src="js/app/model/PlayerModel.js"></script>
 <script src="js/app/model/MatrixModel.js"></script>
-<script src="js/app/controller/AppController.js"></script>
-<script src="js/app/controller/MenuController.js"></script>
-<script src="js/app/controller/PlayerController.js"></script>
-<script src="js/app/controller/MatrixController.js"></script>
-<script>AppController.start();</script>
+<script src="js/app/controller/GameController.js"></script>
+<script src="js/app/view/PlayerView.js"></script>
+<script src="js/app/view/MatrixView.js"></script>
+<script>
+    const game = new GameController();
+    game.newGame();
+</script>
 </body>
 </html>
